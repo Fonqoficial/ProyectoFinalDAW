@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="../CSS/login.css">
+    <script>
+        // Captura el evento de submit
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("formRegistro"); // Obtiene el formulario
+            const mensaje = document.getElementById("mensaje"); // Obtiene el div donde se mostrará el mensaje
+
+            // Función para registrar usuario sin recargar la página
+            function registrarUsuario(event) {
+                event.preventDefault(); // Evita la recarga de la página
+
+                const formData = new FormData(form); // Obtiene los datos del formulario
+
+                // Realiza la solicitud AJAX con fetch
+                fetch('http://localhost/Catalogo_Anime/registro.php', {
+                    method: 'POST',
+                    body: formData // Envía los datos del formulario
+                })
+                    .then(response => response.text()) // Espera la respuesta como texto
+                    .then(data => {
+                        mensaje.innerHTML = data; // Muestra el mensaje de respuesta
+
+                        // Cambiar el color según el tipo de mensaje (success o error)
+                        if (data.includes('ya está registrado') || data.includes('Error')) {
+                            mensaje.className = 'mensaje error'; // Error
+                        } else {
+                            mensaje.className = 'mensaje success'; // Éxito
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        mensaje.innerHTML = 'Ocurrió un error. Intenta nuevamente.';
+                        mensaje.className = 'mensaje error'; // Error
+                    });
+            }
+
+            // Evento de envío del formulario
+            form.addEventListener("submit", registrarUsuario);
+
+            // Función para redirigir al login
+            document.getElementById('btnLogin').addEventListener('click', function () {
+                window.location.href = 'login.html'; // Redirige a la página de login
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Formulario de Registro</h1>
+        <form id="formRegistro" action="http://localhost/Catalogo_Anime/registro.php" method="POST">
+            <div class="input-group">
+                <label for="nombre_usuario">Nombre de usuario:</label>
+                <input type="text" id="nombre_usuario" name="nombre_usuario" required>
+            </div>
+
+            <div class="input-group">
+                <label for="correo">Correo electrónico:</label>
+                <input type="email" id="correo" name="correo" required>
+            </div>
+
+            <div class="input-group">
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" id="contrasena" name="contrasena" required>
+            </div>
+
+            <div class="button-group">
+                <input type="submit" value="Registrar">
+            </div>
+
+            <!-- Nuevo botón para ir al login -->
+            <div class="button-group">
+                <button type="button" id="btnLogin">Ir al Login</button>
+            </div>
+        </form>
+
+        <!-- Div donde se mostrará el mensaje -->
+        <div id="mensaje" class="mensaje"></div>
+    </div>
+</body>
+
+</html>

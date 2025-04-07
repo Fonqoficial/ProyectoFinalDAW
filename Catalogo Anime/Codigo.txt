@@ -1,0 +1,41 @@
+-- Crear base de datos
+CREATE DATABASE catalogo_animes;
+
+-- Usar la base de datos creada
+USE catalogo_animes;
+
+-- Tabla Animes
+CREATE TABLE animes (
+    id INT AUTO_INCREMENT PRIMARY KEY, -- Identificador único para cada anime.
+    titulo VARCHAR(255) NOT NULL, -- Título del anime.
+    sinopsis TEXT NOT NULL, -- Descripción o sinopsis del anime.
+    ano_lanzamiento YEAR NOT NULL, -- Año de lanzamiento.
+    estudio VARCHAR(100), -- Estudio responsable del anime.
+    calificacion FLOAT DEFAULT 0, -- Calificación promedio del anime.
+    url_imagen VARCHAR(255), -- URL de la imagen del anime.
+    tiene_manga BOOLEAN DEFAULT FALSE, -- Indica si el anime tiene manga.
+    fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP -- Fecha de creación del registro.
+);
+
+-- Tabla Usuarios
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY, -- Identificador único del usuario.
+    nombre_usuario VARCHAR(50) NOT NULL, -- Nombre de usuario.
+    correo VARCHAR(100) UNIQUE NOT NULL, -- Correo electrónico único del usuario.
+    contrasena VARCHAR(255) NOT NULL, -- Contraseña del usuario.
+    fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP -- Fecha de creación del registro.
+);
+
+
+-- Tabla Solicitudes
+CREATE TABLE solicitudes (
+    id INT AUTO_INCREMENT PRIMARY KEY, -- Identificador único para cada solicitud.
+    id_usuario INT NOT NULL, -- Identificador del usuario que realiza la solicitud.
+    nombre_anime VARCHAR(255) NOT NULL, -- Nombre del anime solicitado.
+    productora VARCHAR(100) NOT NULL, -- Productora del anime.
+    fecha_publicacion DATE NOT NULL, -- Fecha de publicación del anime.
+    estado VARCHAR(50) DEFAULT 'Pendiente', -- Estado de la solicitud (pendiente, aprobada, rechazada, etc.).
+    fecha_solicitud DATETIME DEFAULT CURRENT_TIMESTAMP, -- Fecha de la solicitud.
+    comentarios TEXT, -- Comentarios adicionales sobre la solicitud.
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE -- Relación con la tabla de usuarios.
+);

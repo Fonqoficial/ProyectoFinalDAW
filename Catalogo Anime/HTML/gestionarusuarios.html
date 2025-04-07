@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuarios</title>
+    <link rel="stylesheet" href="../CSS/gestionarusuarios.css">
+</head>
+
+<body>
+    <!-- Botón para volver a admin.html -->
+    <button class="boton-volver" onclick="window.location.href='admin.html'">Volver a Admin</button>
+
+    <h2>Lista de Usuarios</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre de Usuario</th>
+                <th>Correo</th>
+                <th>Tipo</th>
+                <th>Modificar</th>
+            </tr>
+        </thead>
+        <tbody id="tablaUsuarios">
+            <!-- Aquí se insertarán los datos -->
+        </tbody>
+    </table>
+
+    <script src="../Script/gestionarusuarios.js"></script>
+</body>
+
+</html>

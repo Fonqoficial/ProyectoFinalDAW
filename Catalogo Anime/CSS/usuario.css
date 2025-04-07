@@ -1,0 +1,138 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    text-align: center;
+}
+
+.panelPrincipal {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor de botones */
+.panelBotones {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+/* Botones */
+.btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 16px;
+    background-color: #008CBA;
+    color: white;
+}
+
+.cerrarsesion {
+    background-color: red;
+    color: white;
+}
+
+/* Barra de búsqueda */
+.Barra_Busqueda {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#busqueda {
+    width: 60%; /* Aumenta el ancho para que ocupe más espacio */
+    padding: 12px 18px; /* Agrega más espacio interno para hacerlo más cómodo */
+    font-size: 16px;
+    border: 2px solid #007BFF; /* Borde azul para darle un aspecto más atractivo */
+    border-radius: 30px; /* Bordes redondeados */
+    background-color: #f9f9f9; /* Fondo claro y suave */
+    transition: all 0.3s ease-in-out; /* Transición suave para los cambios de estado */
+    outline: none; /* Elimina el borde predeterminado al hacer foco */
+}
+
+/* Efecto al enfocar la barra de búsqueda */
+#busqueda:focus {
+    border-color: #0056b3; /* Cambia el borde a un azul más oscuro cuando se hace foco */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3); /* Agrega una sombra sutil alrededor del input */
+    background-color: #fff; /* Fondo blanco al hacer foco */
+}
+
+/* Contenedor de búsqueda y tabla */
+.Panel_Tabla_Busqueda {
+    max-width: 90%;
+    margin: auto;
+    text-align: center;
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    font-size: 16px;
+}
+
+th {
+    background-color: var(--theme-color, #007BFF);
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+tr:hover {
+    background-color: rgba(0, 123, 255, 0.15);
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+}
+
+/* Estilos de imágenes */
+img {
+    max-width: 100px;
+    max-height: 150px;
+    border-radius: 8px;
+}
+
+/* Estilos adicionales de botones */
+.show-more-btn, .fav-btn {
+    background-color: #008CBA;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.show-more-btn:hover, .fav-btn:hover {
+    background-color: #005f73;
+}
+
+.disabled-btn {
+    background-color: #28a745 !important; /* Verde para indicar agregado */
+    color: white !important;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+.panelusuario{
+    text-align: right;
+}

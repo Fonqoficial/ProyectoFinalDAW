@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Administrador</title>
+    <link rel="stylesheet" href="../CSS/admin.css">
+<style>
+       
+    </style>
+</head>
+<body>
+
+    <h1>Bienvenido, Administrador</h1>
+    <div class="container">
+        <p class="mensaje">Opciones del Administrador.</p>
+
+        <div class="botones">
+            <button onclick="window.location.href='gestionarusuarios.html'">Gestionar Usuarios</button>
+            <button onclick="window.location.href='consultarsolicitudes.html'">Consultar Solicitudes</button>
+            <button onclick="mostrarModal()">➕ Añadir Anime</button>
+            <button onclick="mostrarConfiguracion()">⚙️ Configuración</button>
+            <button onclick="window.location.href='login.html'">Cerrar sesión</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Lista de Animes</h2>
+         <!-- Barra de búsqueda -->
+         <input type="text" id="busqueda" placeholder="Buscar anime..." onkeyup="filtrarAnimes()">
+        
+        <table id="animeTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Imagen</th>
+                    <th>Título</th>
+                    <th>Calificación</th>
+                    <th>Año</th>
+                    <th>Estudio</th>
+                    <th>Sinopsis</th>
+                    <th>Tiene Manga</th>
+                    <th>Modificar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <div id="modalConfiguracion" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="cerrarConfiguracion()">&times;</span>
+                <h2>Configuración</h2>
+                <div class="form-group">
+                    <label for="colorColumnas">Color de Columnas:</label>
+                    <select id="colorColumnas">
+                        <option value="default">Naranja (Predeterminado)</option>
+                        <option value="azul">Azul</option>
+                        <option value="verde">Verde</option>
+                        <option value="morado">Morado</option>
+                    </select>
+                </div>
+        
+                <div class="form-group">
+                    <label for="tipoFuente">Tipo de Fuente:</label>
+                    <select id="tipoFuente">
+                        <option value="arial">Arial</option>
+                        <option value="verdana">Verdana</option>
+                        <option value="comic">Comic Sans</option>
+                    </select>
+                </div>
+        
+                <button onclick="aplicarConfiguracion()">Aplicar</button>
+                <button onclick="cerrarConfiguracion()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalAnime" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <h2>Insertar Nuevo Anime</h2>
+            <form id="formInsertarAnime">
+                <div class="form-group">
+                    <label for="titulo">Título:</label>
+                    <input type="text" id="titulo" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="calificacion">Calificación:</label>
+                    <input type="number" id="calificacion" step="0.1" min="0" max="10" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="ano_lanzamiento">Año de Lanzamiento:</label>
+                    <input type="number" id="ano_lanzamiento" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="estudio">Estudio:</label>
+                    <input type="text" id="estudio" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="sinopsis">Sinopsis:</label>
+                    <textarea id="sinopsis" required></textarea>
+                </div>
+            
+                <div class="form-group">
+                    <label for="url_imagen">URL de Portada:</label>
+                    <input type="text" id="url_imagen" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="tiene_manga">¿Tiene Manga?</label>
+                    <select id="tiene_manga">
+                        <option value="true">Sí</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+            
+                <button type="button" id="btnInsertar" onclick="insertarAnime()">Insertar</button>
+                <button type="button" id="btnModificar" style="display: none;" onclick="modificarAnime()">Modificar</button>
+                <button type="button" onclick="cerrarModal()">Cerrar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../Script/admin.js"></script>
+</body>
+</html>

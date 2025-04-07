@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Animes</title>
+    <link rel="stylesheet" href="../CSS/usuario.css"> <!-- Ruta al archivo CSS -->
+</head>
+<body>
+   
+
+    <div class="panelPrincipal">
+
+         <div class="panelUsuario">
+          <p><strong>Bienvenido usuario:</strong> <span id="correoUsuario"></span></p>
+    </div>
+        <h1>Lista de Animes</h1>
+      
+        <!-- Contenedor de botones -->
+        <div class="panelBotones">
+            <button class="btn cerrarsesion" onclick="cerrarSesion()">Cerrar Sesión</button>
+            <button class="btn " onclick="irASolicitudes()">Ir a Solicitudes</button>
+            <button class="btn " onclick="irAFavoritos()">Favoritos</button>
+        </div>
+
+        <!-- Contenedor de la búsqueda y tabla -->
+        <div class="Panel_Tabla_Busqueda">
+            <div class="Barra_Busqueda">
+                <input type="text" id="busqueda" placeholder="Buscar anime..." onkeyup="filtrarAnimes()">
+            </div>
+
+            <table id="tabla_Anime">
+                <thead>
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Título</th>
+                        <th>Calificación</th>
+                        <th>Año de Lanzamiento</th>
+                        <th>Acciones</th>
+                        <th>Agregar a Favoritos</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="../Script/usuario.js"></script> <!-- Ruta al archivo JavaScript -->
+
+</body>
+</html>

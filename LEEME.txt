@@ -1,0 +1,6 @@
+La carpeta Catalogo_Anime la tienes que copiar en htdocs en xampp
+ y la sql la importas al mysql acuerdate de poner el mismo nombre u la carpeta
+Catalogo Anime la dejas en el escritorio.
+
+
+SI TIENES ALGUN PROBLEMA YA TIENES MI NUMERO PARA AVIRME
