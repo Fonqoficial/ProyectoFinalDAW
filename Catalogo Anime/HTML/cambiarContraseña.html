@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Modificar Contraseña</title>
+  <link rel="stylesheet" href="../CSS/cambiarContraseña.css">    <!-- Enlace al archivo CSS en la carpeta CSS -->
+
+</head>
+<body>
+  <div class="container">
+    <h2>Modificar Contraseña</h2>
+    <form id="passwordForm">
+      <label for="currentPassword"><strong>Contraseña Actual:</strong></label>
+      <input type="password" id="currentPassword" required>
+
+      <label for="newPassword"><strong>Nueva Contraseña:</strong></label>
+      <input type="password" id="newPassword" required>
+
+      <div class="show-password">
+        <input type="checkbox" id="togglePassword">
+        <label for="togglePassword">Mostrar nueva contraseña</label>
+      </div>
+
+      <label for="confirmPassword"><strong>Confirmar Nueva Contraseña:</strong></label>
+      <input type="password" id="confirmPassword" required>
+
+      <div class="buttons">
+        <button type="button" class="cancel-btn" onclick="history.back()">Volver</button>
+        <button type="submit" class="submit-btn">Aceptar</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="../Script/cambiarContraseña.js"></script> <!-- Enlace al archivo JS en la carpeta Script -->
+</body>
+</html>
