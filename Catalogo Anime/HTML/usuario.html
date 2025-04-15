@@ -18,9 +18,10 @@
       
         <!-- Contenedor de botones -->
         <div class="panelBotones">
-            <button class="btn cerrarsesion" onclick="cerrarSesion()">Cerrar Sesión</button>
-            <button class="btn " onclick="irASolicitudes()">Ir a Solicitudes</button>
-            <button class="btn " onclick="irAFavoritos()">Favoritos</button>
+            <button class="btn cerrarsesion" onclick="cerrarSesion()">🚪 Logout</button>
+            <button class="btn" onclick="irASolicitudes()">📋 Solicitudes</button>
+            <button class="btn" onclick="irAFavoritos()">⭐ Favoritos</button>
+            <button class="btn " onclick="mostrarConfiguracion()">⚙️ Configuración</button>
         </div>
 
         <!-- Contenedor de la búsqueda y tabla -->
@@ -43,6 +44,38 @@
                 <tbody></tbody>
             </table>
         </div>
+        <!-- Contenedor de modal configuracion -->
+        <div id="modalConfiguracion" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="cerrarConfiguracion()">&times;</span>
+                <h2>Configuración</h2>
+                <div class="form-group">
+                    <label for="colorColumnas">Color de Columnas:</label>
+                    <select id="colorColumnas">
+                        <option value="default">Naranja (Predeterminado)</option>
+                        <option value="azul">Azul</option>
+                        <option value="verde">Verde</option>
+                        <option value="morado">Morado</option>
+                    </select>
+                </div>
+        
+                <div class="form-group">
+                    <label for="tipoFuente">Tipo de Fuente:</label>
+                    <select id="tipoFuente">
+                        <option value="arial">Arial</option>
+                        <option value="verdana">Verdana</option>
+                        <option value="comic">Comic Sans</option>
+                    </select>
+                </div>
+                <!-- Botón Cambiar Contraseña -->
+                 <button onclick="window.location.href='cambiarContraseña.html'">🔒 Cambiar Contraseña</button>
+
+        
+                <button onclick="aplicarConfiguracion()">Aplicar</button>
+                <button onclick="cerrarConfiguracion()">Cerrar</button>
+            </div>
+        </div>
+    </div>
     </div>
 
     <script src="../Script/usuario.js"></script> <!-- Ruta al archivo JavaScript -->
