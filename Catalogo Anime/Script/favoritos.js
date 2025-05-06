@@ -48,7 +48,7 @@ async function cargarFavoritos() {
                 <td>${anime.ano_lanzamiento}</td>
                 <td><button class="show-more-btn" onclick="mostrarMas(${index})">Mostrar más</button></td>
                 <td>
-                    <button class="fav-btn" onclick="eliminarDeFavoritos('${anime.titulo}', this)">❌ Eliminar</button>
+                    <button class="fav-btn" onclick="eliminarDeFavoritos('${anime.titulo}', this)">❌ Eliminar de favoritos</button>
                 </td>
             `;
 
@@ -116,5 +116,34 @@ async function eliminarDeFavoritos(tituloAnime, boton) {
         console.error("Error al eliminar de favoritos:", error);
     }
 }
+
+function cargarConfiguracion() {
+    const colorColumnas = localStorage.getItem("colorColumnas") || "naranja";
+    const tipoFuente = localStorage.getItem("tipoFuente") || "Arial, sans-serif";
+
+    aplicarColorColumnas(colorColumnas);
+    document.body.style.fontFamily = tipoFuente;
+}
+
+function aplicarColorColumnas(color) {
+    const nuevoColor = color === "azul" ? "#2196F3" :
+                       color === "verde" ? "#4CAF50" :
+                       color === "morado" ? "#9C27B0" :
+                       "#FF5733"; // Naranja por defecto
+
+    const columnas = document.querySelectorAll("th");
+
+
+    columnas.forEach(th => th.style.backgroundColor = nuevoColor);
+    botones.forEach(btn => {
+        btn.style.backgroundColor = nuevoColor;
+        btn.style.borderColor = nuevoColor;
+        btn.style.color = "#fff";
+    });
+}
+
+// Ejecutar al cargar la página
+document.addEventListener("DOMContentLoaded", cargarConfiguracion);
+
 
 window.onload = cargarFavoritos;

@@ -74,6 +74,8 @@ img {
 .action-button:hover {
     background-color: #D84315;
 }
+
+/* Estilo de Modal de Configuracion */
 .modal {
     display: none;
     position: fixed;

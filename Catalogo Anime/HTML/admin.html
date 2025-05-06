@@ -16,11 +16,11 @@
         <p class="mensaje">Opciones del Administrador.</p>
 
         <div class="botones">
-            <button onclick="window.location.href='gestionarusuarios.html'">Gestionar Usuarios</button>
-            <button onclick="window.location.href='consultarsolicitudes.html'">Consultar Solicitudes</button>
+            <button onclick="window.location.href='gestionarusuarios.html'">👥 Gestionar Usuarios</button>
+            <button onclick="window.location.href='consultarsolicitudes.html'">📋 Consultar Solicitudes</button>
             <button onclick="mostrarModal()">➕ Añadir Anime</button>
             <button onclick="mostrarConfiguracion()">⚙️ Configuración</button>
-            <button onclick="window.location.href='login.html'">Cerrar sesión</button>
+            <button onclick="window.location.href='login.html'">🚪 Logout</button>
         </div>
     </div>
 
@@ -79,7 +79,7 @@
     <div id="modalAnime" class="modal">
         <div class="modal-content">
             <span class="close" onclick="cerrarModal()">&times;</span>
-            <h2>Insertar Nuevo Anime</h2>
+            <h2>Insertar-Modificar Nuevo Anime</h2>
             <form id="formInsertarAnime">
                 <div class="form-group">
                     <label for="titulo">Título:</label>
@@ -114,9 +114,11 @@
                 <div class="form-group">
                     <label for="tiene_manga">¿Tiene Manga?</label>
                     <select id="tiene_manga">
+                        <option value="" selected disabled>Elige una opción</option>
                         <option value="true">Sí</option>
                         <option value="false">No</option>
                     </select>
+                    
                 </div>
             
                 <button type="button" id="btnInsertar" onclick="insertarAnime()">Insertar</button>

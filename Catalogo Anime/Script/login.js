@@ -4,6 +4,10 @@ document.getElementById("FormularioLogin").addEventListener("submit", async func
     const formData = new FormData(this);
     const mensajeError = document.getElementById("mensajeError");
 
+    // Limpia el mensaje anterior
+    mensajeError.textContent = "";
+    mensajeError.className = "mensaje"; // Quita clases anteriores
+
     try {
         const response = await fetch("http://localhost/Catalogo_Anime/login.php", {
             method: "POST",
@@ -13,12 +17,15 @@ document.getElementById("FormularioLogin").addEventListener("submit", async func
         const data = await response.json();
 
         if (data.error) {
-            mensajeError.textContent = data.error; // Muestra el error en la misma página
-        } else if (data.success) {
-            mensajeError.style.color = "green";
-            mensajeError.textContent = "Inicio de sesión exitoso. Redirigiendo...";
 
-            // Guardar el correo en sessionStorage para su uso en usuario.html
+            // Mostrar mensaje en la página
+            mensajeError.textContent = data.error;
+            mensajeError.classList.add("error"); // Aplica estilo rojo
+        } else if (data.success) {
+            mensajeError.textContent = "Inicio de sesión exitoso. Redirigiendo...";
+            mensajeError.classList.add("success");
+
+            // Guardar el correo en sessionStorage
             sessionStorage.setItem("correoUsuario", formData.get("correo"));
 
             setTimeout(() => {
@@ -31,5 +38,12 @@ document.getElementById("FormularioLogin").addEventListener("submit", async func
         }
     } catch (error) {
         mensajeError.textContent = "Hubo un error en la conexión.";
+        mensajeError.classList.add("error");
     }
 });
+
+document.getElementById("mostrarContrasena").addEventListener("change", function() {
+    const inputContrasena = document.getElementById("contrasena");
+    inputContrasena.type = this.checked ? "text" : "password";
+});
+

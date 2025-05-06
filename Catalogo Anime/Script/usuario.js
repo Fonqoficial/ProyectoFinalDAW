@@ -149,3 +149,88 @@ function filtrarAnimes() {
         }
     }
 }
+
+// Mostrar configuración del sistema
+document.addEventListener("DOMContentLoaded", function () {
+    cargarConfiguracion();
+});
+
+// Mostrar ventana de configuración
+function mostrarConfiguracion() {
+    document.getElementById("modalConfiguracion").style.display = "block";
+}
+
+// Cerrar ventana de configuración
+function cerrarConfiguracion() {
+    document.getElementById("modalConfiguracion").style.display = "none";
+}
+
+// Aplicar configuración seleccionada
+function aplicarConfiguracion() {
+    const colorColumnas = document.getElementById("colorColumnas").value;
+    const tipoFuente = document.getElementById("tipoFuente").value;
+
+    // Aplicar color de las columnas
+    aplicarColorColumnas(colorColumnas);
+
+    // Aplicar tipo de fuente
+    document.body.style.fontFamily = tipoFuente;
+
+    // Guardar en LocalStorage
+    localStorage.setItem("colorColumnas", colorColumnas);
+    localStorage.setItem("tipoFuente", tipoFuente);
+
+    cerrarConfiguracion();
+}
+
+// Cargar configuración guardada
+function cargarConfiguracion() {
+    const colorColumnas = localStorage.getItem("colorColumnas") || "naranja";
+    const tipoFuente = localStorage.getItem("tipoFuente") || "Arial, sans-serif";
+
+    // Aplicar configuraciones guardadas
+    aplicarColorColumnas(colorColumnas);
+    document.body.style.fontFamily = tipoFuente;
+
+    // Restaurar valores en los select e inputs
+    document.getElementById("colorColumnas").value = colorColumnas;
+    document.getElementById("tipoFuente").value = tipoFuente;
+}
+
+// Cambiar el color de las columnas y botones
+function aplicarColorColumnas(color) {
+    const columnas = document.querySelectorAll("th"); // Columnas de la tabla
+    const botonesAccion = document.querySelectorAll(".action-button"); // Botones de Modificar y Eliminar
+    const botonesExtra = document.querySelectorAll(".extra-button, a"); // Botones adicionales y enlaces
+
+    let nuevoColor;
+    switch (color) {
+        case "azul": nuevoColor = "#2196F3"; break;
+        case "verde": nuevoColor = "#4CAF50"; break;
+        case "morado": nuevoColor = "#9C27B0"; break;
+        default: nuevoColor = "#FF5733"; // Naranja predeterminado
+    }
+
+    // Cambiar color de las columnas
+    columnas.forEach(th => th.style.backgroundColor = nuevoColor);
+
+    // Cambiar color de los botones de acción (Modificar y Eliminar)
+    botonesAccion.forEach(btn => {
+        btn.style.backgroundColor = nuevoColor;
+        btn.style.borderColor = nuevoColor;
+        btn.style.color = "#fff"; // Asegurar contraste con el fondo
+    });
+
+
+
+    // Cambiar color de los botones adicionales y enlaces
+    botonesExtra.forEach(btn => {
+        btn.style.backgroundColor = nuevoColor;
+        btn.style.borderColor = nuevoColor;
+        btn.style.color = "#fff";
+        btn.style.padding = "10px 15px"; // Espaciado similar a un botón
+        btn.style.borderRadius = "5px"; // Bordes redondeados
+        btn.style.textDecoration = "none"; // Quitar subrayado
+        btn.style.display = "inline-block"; // Evita que se aplique solo al texto
+    });
+}

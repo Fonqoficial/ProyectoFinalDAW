@@ -14,6 +14,9 @@ function cerrarModal() {
 
 // Insertar un nuevo anime
 async function insertarAnime() {
+    if (!confirm("¿Estás seguro de que deseas insetar este anime?")) {
+        return;
+    }
     const formData = new URLSearchParams();
     formData.append("accion", "insertar");
     formData.append("titulo", document.getElementById("titulo").value);
@@ -177,7 +180,6 @@ function cargarConfiguracion() {
 function aplicarColorColumnas(color) {
     const columnas = document.querySelectorAll("th"); // Columnas de la tabla
     const botonesAccion = document.querySelectorAll(".action-button"); // Botones de Modificar y Eliminar
-    const botonesSuperiores = document.querySelectorAll(".botones button"); // Botones superiores (Añadir Anime, Configuración)
     const botonesExtra = document.querySelectorAll(".extra-button, a"); // Botones adicionales y enlaces
 
     let nuevoColor;
@@ -198,12 +200,6 @@ function aplicarColorColumnas(color) {
         btn.style.color = "#fff"; // Asegurar contraste con el fondo
     });
 
-    // Cambiar color de los botones superiores (Añadir Anime y Configuración)
-    botonesSuperiores.forEach(btn => {
-        btn.style.backgroundColor = nuevoColor;
-        btn.style.borderColor = nuevoColor;
-        btn.style.color = "#fff";
-    });
 
     // Cambiar color de los botones adicionales y enlaces
     botonesExtra.forEach(btn => {

@@ -1,57 +1,105 @@
-body {
+  /* Estilos generales */
+  body {
     font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 50px;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
 .PanelPrincipal {
-    max-width: 300px;
-    margin: auto;
+    background: white;
     padding: 20px;
-    border: 1px solid #ccc;
     border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
 }
 
-.input-group {
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.Datos {
     margin-bottom: 15px;
     text-align: left;
 }
 
-.input-group label {
+.Datos label {
     display: block;
     font-weight: bold;
+    margin-bottom: 5px;
 }
 
-.input-group input {
+.Datos input {
     width: 100%;
     padding: 8px;
-    margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 16px;
 }
 
 .botones {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    margin-top: 10px;
+}
+
+.botones input,
+.botones button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.botones input {
+    background-color: #007bff;
+    color: white;
+}
+
+.botones input:hover {
+    background-color: #0056b3;
+}
+
+.botones button {
+    background-color: #28a745;
+    color: white;
+    margin-top: 5px;
+}
+
+.botones button:hover {
+    background-color: #218838;
 }
 
 .mensaje {
-    font-weight: bold;
-    margin-top: 10px;
-    color: red;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
 }
 
-.forgot-password {
+.mensaje.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
     display: block;
-    text-align: right;
-    margin-top: 5px;
-    color: #007bff;
-    text-decoration: none;
-    font-size: 14px;
 }
 
-.forgot-password:hover {
-    text-decoration: underline;
+.mensaje.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    display: block;
+}
+.vercontraseña{
+    margin-top: 10px; 
+    display: flex; 
+    justify-content: 
+    center; align-items: 
+    center; gap: 8px;
 }

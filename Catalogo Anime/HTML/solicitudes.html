@@ -16,17 +16,11 @@
             <input type="text" id="titulo" placeholder="Introduce el título del anime" required>
 
             <label for="contenido">Comentarios:</label>
-            <textarea id="contenido" placeholder="Escribe tus comentarios sobre el anime" rows="4" required></textarea>
+            <textarea id="contenido" placeholder="" rows="4" required></textarea>
 
             <button type="button" onclick="enviarSolicitud()">Añadir</button>
             <button type="button" onclick="restablecerFormulario()">Volver al índice</button>
         </form>
-
-        <div class="output" id="output" style="display: none;">
-            <p>Solicitud Enviada:</p>
-            <p id="animeTitulo"></p>
-            <p class="content" id="animeContenido"></p>
-        </div>
     </div>
 
     <script src="../Script/solicitudes.js"></script> <!-- Enlace al archivo JS en la carpeta Script -->
