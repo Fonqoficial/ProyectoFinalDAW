@@ -1,154 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Registro de Usuario</title>
-    <style>
-        /* Estilos generales */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .PanelPrincipal {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-        }
-
-        h1 {
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .input-group {
-            margin-bottom: 15px;
-            text-align: left;
-        }
-
-        .input-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .button-group {
-            margin-top: 10px;
-        }
-
-        .button-group input,
-        .button-group button {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .button-group input {
-            background-color: #007bff;
-            color: white;
-        }
-
-        .button-group input:hover {
-            background-color: #0056b3;
-        }
-
-        .button-group button {
-            background-color: #28a745;
-            color: white;
-            margin-top: 5px;
-        }
-
-        .button-group button:hover {
-            background-color: #218838;
-        }
-
-        .mensaje {
-            margin-top: 15px;
-            padding: 10px;
-            border-radius: 5px;
-            display: none;
-        }
-
-        .mensaje.success {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-            display: block;
-        }
-
-        .mensaje.error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-            display: block;
-        }
-    </style>
-    <script>
-        // Captura el evento de submit
-        document.addEventListener("DOMContentLoaded", function () {
-            const form = document.getElementById("formRegistro"); // Obtiene el formulario
-            const mensaje = document.getElementById("mensaje"); // Obtiene el div donde se mostrará el mensaje
-
-            // Función para registrar usuario sin recargar la página
-            function registrarUsuario(event) {
-                event.preventDefault(); // Evita la recarga de la página
-
-                const formData = new FormData(form); // Obtiene los datos del formulario
-
-                // Realiza la solicitud AJAX con fetch
-                fetch('http://localhost/Catalogo_Anime/registro.php', {
-                    method: 'POST',
-                    body: formData // Envía los datos del formulario
-                })
-                    .then(response => response.text()) // Espera la respuesta como texto
-                    .then(data => {
-                        mensaje.innerHTML = data; // Muestra el mensaje de respuesta
-
-                        // Cambiar el color según el tipo de mensaje (success o error)
-                        if (data.includes('ya está registrado') || data.includes('Error')) {
-                            mensaje.className = 'mensaje error'; // Error
-                        } else {
-                            mensaje.className = 'mensaje success'; // Éxito
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        mensaje.innerHTML = 'Ocurrió un error. Intenta nuevamente.';
-                        mensaje.className = 'mensaje error'; // Error
-                    });
-            }
-
-            // Evento de envío del formulario
-            form.addEventListener("submit", registrarUsuario);
-
-            // Función para redirigir al login
-            document.getElementById('btnLogin').addEventListener('click', function () {
-                window.location.href = 'login.html'; // Redirige a la página de login
-            });
-        });
-    </script>
+    <link rel="stylesheet" href="../CSS/registrar.css" />
 </head>
 
 <body>
@@ -157,32 +13,37 @@
         <form id="formRegistro" action="http://localhost/Catalogo_Anime/registro.php" method="POST">
             <div class="input-group">
                 <label for="nombre_usuario">Nombre de usuario:</label>
-                <input type="text" id="nombre_usuario" name="nombre_usuario" required>
+                <input type="text" id="nombre_usuario" name="nombre_usuario" required />
             </div>
 
             <div class="input-group">
                 <label for="correo">Correo electrónico:</label>
-                <input type="email" id="correo" name="correo" required>
+                <input type="email" id="correo" name="correo" required />
             </div>
 
             <div class="input-group">
                 <label for="contrasena">Contraseña:</label>
-                <input type="password" id="contrasena" name="contrasena" required>
+                <input type="password" id="contrasena" name="contrasena" required />
             </div>
+            <div class="vercontraseña">
+    <label for="mostrarContrasena">Mostrar contraseña</label>
+    <input type="checkbox" id="mostrarContrasena">
+   
+        </div>
 
             <div class="button-group">
-                <input type="submit" value="Registrar">
+                <input type="submit" value="Registrar" />
             </div>
 
-            <!-- Nuevo botón para ir al login -->
             <div class="button-group">
                 <button type="button" id="btnLogin">Ir al Login</button>
             </div>
         </form>
 
-        <!-- Div donde se mostrará el mensaje -->
         <div id="mensaje" class="mensaje"></div>
     </div>
-</body>
 
+    <!-- Vincula el archivo JavaScript externo -->
+    <script src="../Script/registrar.js"></script>
+</body>
 </html>
