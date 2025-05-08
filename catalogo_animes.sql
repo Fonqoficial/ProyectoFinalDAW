@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-04-2025 a las 19:03:17
+-- Tiempo de generación: 08-05-2025 a las 20:19:37
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.0.28
 
@@ -54,32 +54,8 @@ INSERT INTO `animes` (`id`, `titulo`, `sinopsis`, `ano_lanzamiento`, `estudio`, 
 (10, 'dfasfasdfs', 'rwge', '0000', 'sgwgwr', 23423, '', 0, '2025-03-08 16:22:12'),
 (12, 'batido de fresa', '', '0000', 'dfsfsa', 3, '', 0, '2025-03-08 16:39:49'),
 (16, 'prueba de insertar/modificar version2 anime0', 'esto es vegas altas', '0000', 'vegas', 3, '', 0, '2025-03-11 15:32:11'),
-(18, 'olivesnza', '', '0000', '', 32432, '', 0, '2025-03-26 20:03:12');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `anime_generos`
---
-
-CREATE TABLE `anime_generos` (
-  `id_anime` int(11) NOT NULL,
-  `id_genero` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `anime_generos`
---
-
-INSERT INTO `anime_generos` (`id_anime`, `id_genero`) VALUES
-(1, 1),
-(1, 2),
-(2, 1),
-(2, 3),
-(3, 1),
-(3, 4),
-(4, 1),
-(4, 2);
+(18, 'Prueba', 'Esto es una prueba de modificacion', '0000', '', 32432, '', 0, '2025-03-26 20:03:12'),
+(19, 'CSI', 'VSI LAS VEGAS', '2000', 'Toei', 5, '', 0, '2025-05-05 18:32:12');
 
 -- --------------------------------------------------------
 
@@ -107,28 +83,6 @@ INSERT INTO `favoritos` (`id`, `id_usuario`, `id_anime`, `fecha_favorito`) VALUE
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `generos`
---
-
-CREATE TABLE `generos` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `generos`
---
-
-INSERT INTO `generos` (`id`, `nombre`) VALUES
-(1, 'Acción'),
-(2, 'Comedia'),
-(3, 'Aventura'),
-(4, 'Drama'),
-(5, 'Fantasía');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `solicitudes`
 --
 
@@ -151,7 +105,15 @@ INSERT INTO `solicitudes` (`id`, `id_usuario`, `nombre_anime`, `fecha_solicitud`
 (6, 19, 'Esto es una prueba', '2025-03-02 15:20:33', 'Efdafasdf'),
 (7, 19, 'Esto esta hecho desde un usuario normal', '2025-03-11 16:07:07', 'Esto es una prueba del deia 11/03-20..2'),
 (8, 19, 'tolo', '2025-03-16 12:23:00', 'hoya ha estado poniendo los amortiguadores'),
-(9, 19, 'Esto es una prueba despues de hacer varios archivos', '2025-03-26 19:44:43', 'dsfasfsafasfas');
+(9, 19, 'Esto es una prueba despues de hacer varios archivos', '2025-03-26 19:44:43', 'dsfasfsafasfas'),
+(10, 19, 'Prueba', '2025-04-06 20:12:05', 'fgfasg'),
+(11, 19, 'prueba modificada', '2025-04-06 20:15:02', 'esto es una rpueba'),
+(12, 19, 'prueba', '2025-04-06 20:16:39', 'fdsaf'),
+(13, 19, 'prueba', '2025-04-06 20:17:49', 'fdsaf'),
+(14, 19, 'prueba de error', '2025-04-06 20:19:19', 'esto es un error'),
+(15, 19, 'a', '2025-04-06 20:21:13', 'qerqe'),
+(16, 19, 'fdsfas', '2025-04-06 20:24:22', 'fsafaeaawe'),
+(17, 19, 'rtgngng', '2025-04-06 20:30:01', 'ghghg');
 
 -- --------------------------------------------------------
 
@@ -189,7 +151,7 @@ INSERT INTO `usuarios` (`id`, `nombre_usuario`, `correo`, `contrasena`, `fecha_c
 (16, 'Coto', 'lahora@gmail.com', '$2y$10$R9vJ6k2sX85KH.m3DtEQzu4AVjzaCUgtbIWN1ZiCdTUSIIEE1sdB.', '2025-01-21 15:42:25', 'user'),
 (17, 'Coto3', 'coto@gmail.com', '$2y$10$AXOelPi8h4d0fuB93JccXOFYUnN2EABFgeSuPjJsL7J6ePaCgd7Ea', '2025-01-21 16:04:47', 'user'),
 (18, 'cristo', 'correo@ejemplo.com', '$2y$10$q0UznnqM3u2sVi8L/2JLL.Rv5qwgtElE44lBslwYLHwNtU0xb9Npy', '2025-01-21 16:22:57', 'user'),
-(19, 'barto', 'barto@gmail.com', '$2y$10$oyk8hliwUMJake8rofu8QuYUgmHrgbgHZHSA4Uhw40hXUlGYt47LK', '2025-01-21 16:26:57', 'user'),
+(19, 'barto', 'barto@gmail.com', '$2y$10$B6yZnOwGh///xOfax04mgexkDjX1OYSjH6sH.wWt2x0UXoCsAs4eO', '2025-01-21 16:26:57', 'user'),
 (20, 'admin', 'admin@admin.com', '$2y$10$0YaS25BB8KVedLVJUpoSEOeQrY6xYDCSEMSbx5tUMQ0sp7/BEKG/O', '2025-02-15 13:25:16', 'user'),
 (21, 'qwert', 'qwert@qwer.com', '$2y$10$r.U66XC1VdEAeWi6KK179OdtTf4kvAICU48XuiXUhZg4uA0nkw38i', '2025-02-15 13:31:05', 'user'),
 (22, 'barto', 'barto4@gmail.com', '$2y$10$.7mbhjXeiRLMiiQTAicZ8eZf1N38r3oj/GDJDCXuXNh5JO5681luC', '2025-02-15 13:57:02', 'user'),
@@ -200,7 +162,11 @@ INSERT INTO `usuarios` (`id`, `nombre_usuario`, `correo`, `contrasena`, `fecha_c
 (27, 'cristoffer', 'cristoffe44r@gmail.com', '$2y$10$DwmXPPI79DrcI6cFaipPTeDoNklYMD3ZLF9sEqtcaUnc45qpQznXu', '2025-02-15 15:05:53', 'user'),
 (28, 'barto', 'bartfo@gmail.com', '$2y$10$VEcT8RSBg0o3g2DTmJNVrOe2LCOcc0DNTym33Bac3PiCf9.gE1BqW', '2025-02-15 15:23:04', 'user'),
 (29, 'admin', 'admin@gmail.com', '$2y$10$wESJQY4v3gvMUPxtSvd2WOHhLx4U3l2G3lHlGdseKBVJ.UJyx0.t6', '2025-02-23 17:25:55', 'admin'),
-(30, 'admiinistradorPrubea', 'adminprueba@gmail.com', '$2y$10$Nxyv29jBaDwSnrD4f.4E8.AZd0xfsjyqXebNqSE24i4aeyZxE17Bm', '2025-03-20 16:36:54', 'admin');
+(30, 'admiinistradorPrubea', 'adminprueba@gmail.com', '$2y$10$Nxyv29jBaDwSnrD4f.4E8.AZd0xfsjyqXebNqSE24i4aeyZxE17Bm', '2025-03-20 16:36:54', 'admin'),
+(31, 'Prueba', 'prueba@gmail.com', '$2y$10$/jAqn97RbRE1n5ftEsS5iujfsZ3aYlkFAtghQgzLB9W7/w3UgzqL.', '2025-05-07 15:57:36', 'user'),
+(32, 'prueba1', 'barto97@gmail.com', '$2y$10$77O/e0TyYmvf8bqmWUzfley7oEzZXXS6b2np5.tJLAhiQ5/dq1GzS', '2025-05-07 16:00:49', 'user'),
+(33, 'barto', 'prueba4@gmail.com', '$2y$10$cP6AJwwNxvvhBjLYTzOCfOOmEYl/VFADeF3IsxNAQKyOZnj8Kybk6', '2025-05-07 16:07:48', 'user'),
+(34, 'barto', 'bartofdf@gmail.com', '$2y$10$6jb1aCqwWeIbt14JyR0OROKZxUjZ6768CeMveCEbxYQ4deVSEtLvW', '2025-05-07 16:15:33', 'user');
 
 --
 -- Índices para tablas volcadas
@@ -213,25 +179,12 @@ ALTER TABLE `animes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `anime_generos`
---
-ALTER TABLE `anime_generos`
-  ADD PRIMARY KEY (`id_anime`,`id_genero`),
-  ADD KEY `id_genero` (`id_genero`);
-
---
 -- Indices de la tabla `favoritos`
 --
 ALTER TABLE `favoritos`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id_usuario` (`id_usuario`,`id_anime`),
   ADD KEY `id_anime` (`id_anime`);
-
---
--- Indices de la tabla `generos`
---
-ALTER TABLE `generos`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `solicitudes`
@@ -255,7 +208,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `animes`
 --
 ALTER TABLE `animes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `favoritos`
@@ -264,33 +217,20 @@ ALTER TABLE `favoritos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT de la tabla `generos`
---
-ALTER TABLE `generos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
 -- AUTO_INCREMENT de la tabla `solicitudes`
 --
 ALTER TABLE `solicitudes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- Restricciones para tablas volcadas
 --
-
---
--- Filtros para la tabla `anime_generos`
---
-ALTER TABLE `anime_generos`
-  ADD CONSTRAINT `anime_generos_ibfk_1` FOREIGN KEY (`id_anime`) REFERENCES `animes` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `anime_generos_ibfk_2` FOREIGN KEY (`id_genero`) REFERENCES `generos` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `favoritos`
