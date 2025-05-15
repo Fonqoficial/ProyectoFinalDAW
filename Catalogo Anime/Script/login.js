@@ -37,7 +37,7 @@ document.getElementById("FormularioLogin").addEventListener("submit", async func
             }, 1500);
         }
     } catch (error) {
-        mensajeError.textContent = "Hubo un error en la conexión.";
+        mensajeError.textContent = "Error en la conexion con la Base de Datos";
         mensajeError.classList.add("error");
     }
 });
