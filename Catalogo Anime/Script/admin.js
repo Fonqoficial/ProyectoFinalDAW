@@ -14,6 +14,8 @@ function cerrarModal() {
 
 // Insertar un nuevo anime
 async function insertarAnime() {
+    // Reemplazar confirm con un modal personalizado si es necesario
+    // Para este ejemplo, se mantiene confirm por simplicidad, pero se recomienda cambiarlo
     if (!confirm("¿Estás seguro de que deseas insetar este anime?")) {
         return;
     }
@@ -35,9 +37,11 @@ async function insertarAnime() {
         });
 
         const data = await response.json();
+        // Reemplazar alert con un modal personalizado si es necesario
         alert(data.message || "Anime insertado con éxito");
     } catch (error) {
         console.error("Error en la inserción:", error);
+        // Reemplazar alert con un modal personalizado si es necesario
         alert("Error al insertar el anime");
     }
 
@@ -68,6 +72,7 @@ function mostrarModalEdicion(button) {
 
 // Modificar un anime
 async function modificarAnime() {
+    // Reemplazar confirm con un modal personalizado si es necesario
     if (!confirm("¿Estás seguro de que deseas modificar este anime?")) {
         return;
     }
@@ -91,9 +96,11 @@ async function modificarAnime() {
         });
 
         const data = await response.json();
+        // Reemplazar alert con un modal personalizado si es necesario
         alert(data.message || "Anime modificado con éxito");
     } catch (error) {
         console.error("Error al modificar el anime:", error);
+        // Reemplazar alert con un modal personalizado si es necesario
         alert("Error al modificar el anime");
     }
 
@@ -103,6 +110,7 @@ async function modificarAnime() {
 
 // Eliminar un anime
 async function eliminarAnime(titulo) {
+    // Reemplazar confirm con un modal personalizado si es necesario
     if (!confirm(`¿Estás seguro de que deseas eliminar "${titulo}"?`)) {
         return;
     }
@@ -119,12 +127,14 @@ async function eliminarAnime(titulo) {
         });
 
         const data = await response.json();
+        // Reemplazar alert con un modal personalizado si es necesario
         alert(data.message || "Anime eliminado con éxito");
 
         // Recargar la lista de animes después de eliminar
         cargarAnimes();
     } catch (error) {
         console.error("Error al eliminar el anime:", error);
+        // Reemplazar alert con un modal personalizado si es necesario
         alert("Error al eliminar el anime");
     }
 }
@@ -217,7 +227,7 @@ function aplicarColorColumnas(color) {
             let input = document.getElementById("busqueda").value.toLowerCase();
             let table = document.getElementById("animeTable");
             let tr = table.getElementsByTagName("tr");
-            
+
             for (let i = 1; i < tr.length; i++) {
                 let td = tr[i].getElementsByTagName("td")[2];
                 if (td) {
@@ -242,7 +252,11 @@ async function cargarAnimes() {
                 <td>${anime.calificacion}</td>
                 <td>${anime.ano_lanzamiento}</td>
                 <td>${anime.estudio}</td>
-                <td>${anime.sinopsis}</td>
+                <td class="table-cell-container">
+                    <div class="truncate-text">
+                        ${anime.sinopsis}
+                    </div>
+                </td>
                 <td>${anime.tiene_manga ? 'Sí' : 'No'}</td>
                 <td><button class="action-button" data-id="${anime.id}" data-titulo="${anime.titulo}" data-calificacion="${anime.calificacion}" data-ano_lanzamiento="${anime.ano_lanzamiento}" data-estudio="${anime.estudio}" data-sinopsis="${anime.sinopsis}" data-tiene_manga="${anime.tiene_manga}" data-url_imagen="${anime.url_imagen}" onclick="mostrarModalEdicion(this)">✏️</button></td>
                 <td><button class="action-button" onclick="eliminarAnime('${anime.titulo}')">❌</button></td>

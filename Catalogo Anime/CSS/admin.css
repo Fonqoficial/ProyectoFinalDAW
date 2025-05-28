@@ -41,7 +41,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    table-layout: fixed;
+    table-layout: fixed; /* Esto es importante para que las columnas tengan un ancho fijo */
     word-wrap: break-word;
 }
 th, td {
@@ -147,3 +147,35 @@ img {
     outline: none;
 }
 
+/* Nuevas clases para el acortado de texto */
+.table-cell-container {
+    position: relative; /* Necesario para que el hover se posicione correctamente */
+}
+
+.truncate-text {
+    max-height: 4.5em; /* Aproximadamente 3 líneas de texto, ajusta según necesidad */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limita el texto a 3 líneas */
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    cursor: pointer;
+}
+
+.truncate-text:hover {
+    max-height: none; /* Elimina el límite de altura */
+    overflow: visible; /* Muestra todo el texto */
+    text-overflow: clip; /* Elimina los puntos suspensivos */
+    -webkit-line-clamp: unset; /* Desactiva el límite de líneas */
+    background-color: #f0f0f0; /* Fondo ligero para resaltar */
+    z-index: 10; /* Asegura que se muestre por encima de otros elementos */
+    position: absolute; /* Permite que el contenido se expanda sin afectar el layout de la tabla */
+    width: 300px; /* Ancho fijo o ajusta según el contenido */
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Alinea el texto a la izquierda en el hover */
+    left: 50%; /* Centra el tooltip */
+    transform: translateX(-50%); /* Centra el tooltip */
+}
